@@ -2,6 +2,11 @@
 
 ./bootstrap.sh
 
+if [[ `uname` == 'Darwin' ]]; then
+    # make check below fails on osx unless $PREFIX/lib is added to rpath
+    LDFLAGS="$LDFLAGS -Wl,-rpath,${PREFIX}/lib"
+fi
+
 ./configure --prefix=$PREFIX \
             --enable-applications \
             --enable-all \
