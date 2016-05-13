@@ -1,4 +1,4 @@
-{% set version = "3.2.4" %}
+{% set version = "3.3.1" %}
 
 package:
   name: nfft
@@ -6,8 +6,8 @@ package:
 
 source:
   fn: nfft-{{ version }}.tar.gz
-  url: https://www-user.tu-chemnitz.de/~potts/nfft/download/nfft-{{ version }}.tar.gz
-  md5: 8d9b1b708236297397ed1b70cace8b7b
+  url: https://github.com/NFFT/nfft/releases/download/{{ version }}/nfft-{{ version }}.tar.gz
+  md5: 8c0516e3252ff39a245e62f1a59d0165
 
 build:
   number: 0
@@ -20,6 +20,8 @@ requirements:
     - libtool
     - autoconf
     - automake
+    - cunit
+    - ncurses
   run:
     - fftw
     - libgcc
