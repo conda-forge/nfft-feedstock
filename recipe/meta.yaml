@@ -10,7 +10,7 @@ source:
   md5: 8c0516e3252ff39a245e62f1a59d0165
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
 
 requirements:
@@ -21,7 +21,7 @@ requirements:
     - autoconf
     - automake
     - cunit
-    - ncurses
+    - ncurses 5.9*
   run:
     - fftw
     - libgcc
