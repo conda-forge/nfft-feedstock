@@ -1,5 +1,10 @@
 #!/bin/bash
 
+rm aclocal.m4
+
+aclocal
+autoconf
+
 ./bootstrap.sh
 
 if [[ `uname` == 'Darwin' ]]; then
