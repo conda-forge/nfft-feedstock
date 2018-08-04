@@ -10,21 +10,21 @@ source:
   md5: 9c2ad6cf86fe4a7bc0de8d2d92b101f4
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
 
 requirements:
   build:
-    - fftw
-    - gcc
     - libtool
     - autoconf
     - automake
+    - {{ compiler('c') }}
+  host:
+    - fftw
     - cunit
-    - ncurses 5.9*
+    - ncurses
   run:
     - fftw
-    - libgcc
 
 test:
   commands:
