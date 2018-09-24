@@ -20,11 +20,11 @@ requirements:
     - autoconf
     - automake
   host:
-    - openmp  # [osx]
+    - openmp 4.0.*  # [osx]
     - fftw
     - cunit
   run:
-    - openmp  # [osx]
+    - openmp 4.0.*  # [osx]
     - fftw
 
 test:
