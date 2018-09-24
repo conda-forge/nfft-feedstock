@@ -15,15 +15,16 @@ build:
 
 requirements:
   build:
-    - gcc # clang doesn't support OpenMP
+    - {{ compiler('c') }}
     - libtool
     - autoconf
     - automake
   host:
-    - ncurses
-    - cunit
+    - openmp  # [osx]
     - fftw
+    - cunit
   run:
+    - openmp  # [osx]
     - fftw
 
 test:
