@@ -41,6 +41,7 @@ about:
   summary: Non-equispaced fast Fourier transform (NFFT) library
 
 extra:
-    recipe-maintainers:
-      - ghisvail
-      - grlee77
+  recipe-maintainers:
+    - ghisvail
+    - grlee77
+    - kohr-h
