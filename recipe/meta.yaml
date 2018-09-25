@@ -10,21 +10,23 @@ source:
   md5: 9c2ad6cf86fe4a7bc0de8d2d92b101f4
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
 
 requirements:
   build:
-    - fftw
-    - gcc
+    - {{ compiler('c') }}
     - libtool
     - autoconf
     - automake
-    - cunit
-    - ncurses 5.9*
-  run:
+  host:
+    - openmp 4.0.*  # [osx]
     - fftw
-    - libgcc
+    - cunit
+    - ncurses
+  run:
+    - openmp 4.0.*  # [osx]
+    - fftw
 
 test:
   commands:
@@ -41,6 +43,7 @@ about:
   summary: Non-equispaced fast Fourier transform (NFFT) library
 
 extra:
-    recipe-maintainers:
-      - ghisvail
-      - grlee77
+  recipe-maintainers:
+    - ghisvail
+    - grlee77
+    - kohr-h
