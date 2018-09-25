@@ -23,6 +23,7 @@ requirements:
     - openmp 4.0.*  # [osx]
     - fftw
     - cunit
+    - ncurses
   run:
     - openmp 4.0.*  # [osx]
     - fftw
