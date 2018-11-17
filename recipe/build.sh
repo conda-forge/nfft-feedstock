@@ -10,6 +10,7 @@ autoconf
 if [[ `uname` == 'Darwin' ]]; then
     # make check below fails on osx unless $PREFIX/lib is added to rpath
     LDFLAGS="$LDFLAGS -Wl,-rpath,${PREFIX}/lib"
+    CFLAGS="$CFLAGS -I${PREFIX}/lib/clang/4.0.1/include -fopenmp"
 fi
 
 ./configure --prefix=$PREFIX \
