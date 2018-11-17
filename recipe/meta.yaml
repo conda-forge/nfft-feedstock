@@ -20,12 +20,12 @@ requirements:
     - autoconf
     - automake
   host:
-    - openmp 6.0.*  # [osx]
+    - llvm-openmp  # [osx]
     - fftw
     - cunit
     - ncurses
   run:
-    - openmp 6.0.*  # [osx]
+    - llvm-openmp  # [osx]
     - fftw
 
 test:
