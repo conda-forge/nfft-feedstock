@@ -1,4 +1,4 @@
-{% set version = "3.4.1" %}
+{% set version = "3.2.4" %}
 
 package:
   name: nfft
@@ -6,11 +6,11 @@ package:
 
 source:
   fn: nfft-{{ version }}.tar.gz
-  url: https://github.com/NFFT/nfft/releases/download/{{ version }}/nfft-{{ version }}.tar.gz
-  md5: 9c2ad6cf86fe4a7bc0de8d2d92b101f4
+  url: https://www-user.tu-chemnitz.de/~potts/nfft/download/nfft-{{ version }}.tar.gz
+  sha256: 1405a9eb7eb3c74866afe63026d411f6b4ed2eef5f353783adc7a86933d9f263
 
 build:
-  number: 1001
+  number: 1000
   skip: True  # [win]
 
 requirements:
