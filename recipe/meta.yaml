@@ -20,20 +20,12 @@ requirements:
     - autoconf
     - automake
   host:
-{% if not compiler('c').startswith("toolchain") %}
     - llvm-openmp  # [osx]
-{% else %}
-    - openmp 4.0.*  # [osx]
-{% endif %}
     - fftw
     - cunit
     - ncurses
   run:
-{% if not compiler('c').startswith("toolchain") %}
     - llvm-openmp  # [osx]
-{% else %}
-    - openmp 4.0.*  # [osx]
-{% endif %}
     - fftw
 
 test:
