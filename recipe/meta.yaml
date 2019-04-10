@@ -1,4 +1,4 @@
-{% set version = "3.4.1" %}
+{% set version = "3.5.0" %}
 
 package:
   name: nfft
@@ -7,10 +7,10 @@ package:
 source:
   fn: nfft-{{ version }}.tar.gz
   url: https://github.com/NFFT/nfft/releases/download/{{ version }}/nfft-{{ version }}.tar.gz
-  md5: 9c2ad6cf86fe4a7bc0de8d2d92b101f4
+  sha256: 5f78a9d2a675aee7ace55c96bdf1b54f049e05a1dd50697757bdc609a8586a07
 
 build:
-  number: 1001
+  number: 0
   skip: True  # [win]
 
 requirements:
