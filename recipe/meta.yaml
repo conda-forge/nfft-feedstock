@@ -10,7 +10,7 @@ source:
   sha256: 5f78a9d2a675aee7ace55c96bdf1b54f049e05a1dd50697757bdc609a8586a07
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
 
 requirements:
@@ -39,11 +39,23 @@ requirements:
 test:
   commands:
     - test -f ${PREFIX}/lib/libnfft3.a
+    - test -f ${PREFIX}/lib/libnfft3f.a
+    - test -f ${PREFIX}/lib/libnfft3l.a
     - test -f ${PREFIX}/lib/libnfft3.so  # [linux]
+    - test -f ${PREFIX}/lib/libnfft3f.so  # [linux]
+    - test -f ${PREFIX}/lib/libnfft3l.so  # [linux]
     - test -f ${PREFIX}/lib/libnfft3.dylib  # [osx]
+    - test -f ${PREFIX}/lib/libnfft3f.dylib  # [osx]
+    - test -f ${PREFIX}/lib/libnfft3l.dylib  # [osx]
     - test -f ${PREFIX}/lib/libnfft3_threads.a
+    - test -f ${PREFIX}/lib/libnfft3f_threads.a
+    - test -f ${PREFIX}/lib/libnfft3l_threads.a
     - test -f ${PREFIX}/lib/libnfft3_threads.so  # [linux]
+    - test -f ${PREFIX}/lib/libnfft3f_threads.so  # [linux]
+    - test -f ${PREFIX}/lib/libnfft3l_threads.so  # [linux]
     - test -f ${PREFIX}/lib/libnfft3_threads.dylib  # [osx]
+    - test -f ${PREFIX}/lib/libnfft3f_threads.dylib  # [osx]
+    - test -f ${PREFIX}/lib/libnfft3l_threads.dylib  # [osx]
 
 about:
   home: http://www.nfft.org/
