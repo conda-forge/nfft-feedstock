@@ -1,4 +1,4 @@
-{% set version = "3.5.1" %}
+{% set version = "3.5.2" %}
 
 package:
   name: nfft
@@ -7,11 +7,11 @@ package:
 source:
   fn: nfft-{{ version }}.tar.gz
   url: https://github.com/NFFT/nfft/releases/download/{{ version }}/nfft-{{ version }}.tar.gz
-  sha256: bb95b2c240c6d972d4bb20740751a8efeba8b48b3be1d61fd59883909776fee3
+  sha256: cf3b2f3b2eabd79e49a5fbabf7f8d73fc3c57c4f68ae71e29f6dead853ab2901
 
 build:
   number: 0
-  skip: True  # [win]
+  skip: true  # [win]
 
 requirements:
   build:
@@ -59,7 +59,8 @@ test:
 
 about:
   home: http://www.nfft.org/
-  license: GPLv2
+  license: GPL-2.0-or-later
+  license_file: COPYING
   summary: Non-equispaced fast Fourier transform (NFFT) library
 
 extra:
