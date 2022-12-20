@@ -1,4 +1,6 @@
 #!/bin/bash
+# Get an updated config.sub and config.guess
+cp $BUILD_PREFIX/share/gnuconfig/config.* ./config
 
 rm aclocal.m4
 
@@ -25,7 +27,9 @@ fi
             --with-window=kaiserbessel
 
 make
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
 make check
+fi
 make install
 
 make clean
