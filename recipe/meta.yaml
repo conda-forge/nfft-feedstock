@@ -19,6 +19,7 @@ requirements:
     - libtool
     - autoconf
     - automake
+    - make  # [linux]
   host:
 {% if not compiler('c').startswith("toolchain") %}
     - llvm-openmp  # [osx]
