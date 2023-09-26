@@ -17,6 +17,8 @@ if [[ `uname` == 'Darwin' ]]; then
 fi
 
 ./configure --prefix=$PREFIX \
+            --build=$BUILD \
+            --host=$HOST \
             --enable-applications \
             --enable-all \
             --enable-openmp \
@@ -25,11 +27,15 @@ fi
             --with-window=kaiserbessel
 
 make
-make check
+if [[ "$target_platform" != "osx-arm64" ]]; then
+    make check
+fi
 make install
 
 make clean
 ./configure --prefix=$PREFIX \
+            --build=$BUILD \
+            --host=$HOST \
             --enable-applications \
             --enable-all \
             --enable-openmp \
@@ -39,19 +45,26 @@ make clean
             --with-window=kaiserbessel
 
 make
-make check
+if [[ "$target_platform" != "osx-arm64" ]]; then
+    make check
+fi
 make install
 
-make clean
-./configure --prefix=$PREFIX \
-            --enable-applications \
-            --enable-all \
-            --enable-openmp \
-            --enable-long-double \
-            --with-fftw3-libdir=$PREFIX/lib \
-            --with-fftw3-includedir=$PREFIX/include \
-            --with-window=kaiserbessel
-
-make
-make check
-make install
+# fftw does not build libs for long double on osx-arm64
+if [[ "$target_platform" != "osx-arm64" ]]; then
+    make clean
+    ./configure --prefix=$PREFIX \
+                --build=$BUILD \
+                --host=$HOST \
+                --enable-applications \
+                --enable-all \
+                --enable-openmp \
+                --enable-long-double \
+                --with-fftw3-libdir=$PREFIX/lib \
+                --with-fftw3-includedir=$PREFIX/include \
+                --with-window=kaiserbessel
+    
+    make
+    make check
+    make install
+fi
