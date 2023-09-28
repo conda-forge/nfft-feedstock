@@ -10,7 +10,7 @@ source:
   sha256: cf3b2f3b2eabd79e49a5fbabf7f8d73fc3c57c4f68ae71e29f6dead853ab2901
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -19,6 +19,7 @@ requirements:
     - libtool
     - autoconf
     - automake
+    - make  # [linux]
   host:
 {% if not compiler('c').startswith("toolchain") %}
     - llvm-openmp  # [osx]
@@ -40,22 +41,22 @@ test:
   commands:
     - test -f ${PREFIX}/lib/libnfft3.a
     - test -f ${PREFIX}/lib/libnfft3f.a
-    - test -f ${PREFIX}/lib/libnfft3l.a
+    - test -f ${PREFIX}/lib/libnfft3l.a  # [target_platform != 'osx-arm64']
     - test -f ${PREFIX}/lib/libnfft3.so  # [linux]
     - test -f ${PREFIX}/lib/libnfft3f.so  # [linux]
     - test -f ${PREFIX}/lib/libnfft3l.so  # [linux]
     - test -f ${PREFIX}/lib/libnfft3.dylib  # [osx]
     - test -f ${PREFIX}/lib/libnfft3f.dylib  # [osx]
-    - test -f ${PREFIX}/lib/libnfft3l.dylib  # [osx]
+    - test -f ${PREFIX}/lib/libnfft3l.dylib  # [osx and target_platform != 'osx-arm64']
     - test -f ${PREFIX}/lib/libnfft3_threads.a
     - test -f ${PREFIX}/lib/libnfft3f_threads.a
-    - test -f ${PREFIX}/lib/libnfft3l_threads.a
+    - test -f ${PREFIX}/lib/libnfft3l_threads.a  # [target_platform != 'osx-arm64']
     - test -f ${PREFIX}/lib/libnfft3_threads.so  # [linux]
     - test -f ${PREFIX}/lib/libnfft3f_threads.so  # [linux]
     - test -f ${PREFIX}/lib/libnfft3l_threads.so  # [linux]
     - test -f ${PREFIX}/lib/libnfft3_threads.dylib  # [osx]
     - test -f ${PREFIX}/lib/libnfft3f_threads.dylib  # [osx]
-    - test -f ${PREFIX}/lib/libnfft3l_threads.dylib  # [osx]
+    - test -f ${PREFIX}/lib/libnfft3l_threads.dylib  # [osx and target_platform != 'osx-arm64']
 
 about:
   home: http://www.nfft.org/
